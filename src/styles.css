@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: rgb(43, 43, 182);
+  color: white;
+}
+.registration{
+color:rgb(206, 206, 206);
+display: flex;
+justify-content: center;}
+
+.users{
+display: flex;
+justify-content: center;}
+
+.save{
+display: flex;
+justify-content: center;}
+.save:link{
+  color:rgb(102, 100, 100)}
+.save:visited{
+  color:rgb(187, 108, 108)}
+.save:hover{
+  color:rgb(46, 0, 0)}
+.save{
+  display:flex;
+  justify-content:center;
+}

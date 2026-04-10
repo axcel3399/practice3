@@ -1,0 +1,71 @@
+<div class="container">
+
+  <h1>Users</h1>
+
+  @if (userService.loading()) {
+    <p class="loading">Загрузка...</p>
+  } @else {
+
+    <div class="stats">
+      <span>Админ: {{ userService.adminCount() }}</span>
+      <span>Пользователь: {{ userService.userCount() }}</span>
+    </div>
+
+    
+    <div class="form">
+      <input [(ngModel)]="name" placeholder="Имя" />
+
+      <select [(ngModel)]="role">
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
+
+      <button (click)="addUser()">Добавить</button>
+    </div>
+
+    
+    @if (userService.selectedUser()) {
+      <div class="form edit">
+        <input [(ngModel)]="editName" />
+
+        <select [(ngModel)]="editRole">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+
+        <button (click)="saveEdit()">Сохранить</button>
+        <button (click)="userService.cancelEdit()">Отмена</button>
+      </div>
+    }
+
+   
+    <div class="filter">
+      <button (click)="userService.filter.set('all')">Все</button>
+      <button (click)="userService.filter.set('admin')">Admin</button>
+      <button (click)="userService.filter.set('user')">User</button>
+    </div>
+
+    @if (userService.filteredUsers().length === 0) {
+      <p class="empty">Нет пользователей</p>
+    } @else {
+
+      <div class="list">
+        @for (user of userService.filteredUsers(); track user.id) {
+          <div class="card">
+            <span>{{ user.name }} </span>
+
+            <div class="actions">
+              <button (click)="startEdit(user)">Редактировать</button>
+              <button (click)="userService.removeUser(user.id)">
+                Удалить
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+
+    }
+
+  }
+
+</div>
