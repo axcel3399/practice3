@@ -65,13 +65,13 @@ button:focus {
 
 
 .empty {
-  color: rgb(174, 31, 31);
+  color: rgb(181, 35, 35);
   font-size:25px; 
 }
 
 .actions {
   display: flex;
-  gap: 5px;}
+  gap: 5px; }
 
 .edit {
   background: #dad5cd;
