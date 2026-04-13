@@ -1,9 +1,5 @@
 import { Injectable, signal, computed, effect } from '@angular/core';
-export interface User {
-  id: number;
-  name: string;
-  role: 'admin' | 'user';
-}
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'})

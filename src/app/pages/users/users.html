@@ -34,15 +34,15 @@
         </select>
 
         <button (click)="saveEdit()">Сохранить</button>
-        <button (click)="userService.cancelEdit()">Отмена</button>
+        <button (click)="cancelEdit()">Отмена</button>
       </div>
     }
 
    
     <div class="filter">
-      <button (click)="userService.filter.set('all')">Все</button>
-      <button (click)="userService.filter.set('admin')">Admin</button>
-      <button (click)="userService.filter.set('user')">User</button>
+      <button (click)="setFilter('all')">Все</button>
+      <button (click)="setFilter('admin')">Admin</button>
+      <button (click)="setFilter('user')">User</button>
     </div>
 
     @if (userService.filteredUsers().length === 0) {
@@ -56,7 +56,7 @@
 
             <div class="actions">
               <button (click)="startEdit(user)">Редактировать</button>
-              <button (click)="userService.removeUser(user.id)">
+              <button (click)="removeUser(user.id)">
                 Удалить
               </button>
             </div>

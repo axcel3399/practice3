@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UserService, User } from '../../services/user.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-users',
@@ -31,14 +32,17 @@ export class UsersPage {
     this.name = '';
     this.role = 'user';
   }
+
   removeUser(id: number) {
-  this.userService.removeUser(id);}
+    this.userService.removeUser(id);
+  }
 
 
   startEdit(user: User) {
     this.userService.selectUser(user);
     this.editName = user.name;
-    this.editRole = user.role;}
+    this.editRole = user.role;
+  }
 
   saveEdit() {
     const user = this.userService.selectedUser();
@@ -47,6 +51,15 @@ export class UsersPage {
     this.userService.updateUser({
       id: user.id,
       name: this.editName,
-      role: this.editRole});
+      role: this.editRole
+    });
+  }
+
+  cancelEdit() {
+    this.userService.cancelEdit();
+  }
+
+  setFilter(filter: 'all' | 'admin' | 'user') {
+    this.userService.filter.set(filter);
   }
 }
