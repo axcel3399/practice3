@@ -1,0 +1,47 @@
+<blockquote>
+  Create a single Observable stream to watch for focus
+  being present in the area
+</blockquote>
+<p>
+  <label>
+    Just an input
+    <input placeholder="Focus can be here">
+  </label>
+  <button>I'm a button</button>
+</p>
+<div
+  #focusArea
+  class="focus"
+  [class.focus--active]="focusInside$ | async"
+>
+  <h2>
+    Track focus in this block
+  </h2>
+  <p>
+    <select>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+  </p>
+  <p>
+    <input type="date">
+    <button>I'm a button</button>
+  </p>
+  <p>
+    <label>
+      <input type="radio">
+      Option 1
+    </label>
+    <label>
+      <input type="radio">
+      Option 2
+    </label>
+  </p>
+</div>
+<p>
+  <label>
+    Just an input
+    <input placeholder="Focus can be here">
+  </label>
+  <button>I'm a button</button>
+</p>
