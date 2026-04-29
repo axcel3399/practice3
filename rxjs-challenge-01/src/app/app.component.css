@@ -1,0 +1,10 @@
+.focus {
+  border-radius: 8px;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  padding: 12px;
+}
+
+.focus--active {
+  border-color: #1f7a4f;
+  background: #e8f6ef;
+}
